@@ -5,38 +5,10 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
-        <scene sceneID="ks3-0l-zxG">
-            <objects>
-                <tableViewController id="jvH-Jr-lE1" customClass="HomeViewController" customModule="CanadaFeed" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QTs-jj-l8q">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeTableViewCell" id="9e1-kA-o3l" customClass="HomeTableViewCell" customModule="CanadaFeed" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9e1-kA-o3l" id="JjU-zf-fAa">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="jvH-Jr-lE1" id="nvA-h0-Enc"/>
-                            <outlet property="delegate" destination="jvH-Jr-lE1" id="MGH-Oc-KoS"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="YIp-sk-KgP"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HZJ-6n-2no" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="608" y="-25"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="HbC-TP-LuR">
             <objects>
@@ -46,12 +18,47 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="jvH-Jr-lE1" kind="relationship" relationship="rootViewController" id="rRQ-b0-rVf"/>
+                        <segue destination="MWP-jk-0eJ" kind="relationship" relationship="rootViewController" id="3ky-4d-KTu"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rcu-bf-Qfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-312" y="-25"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="ZfH-xv-wKU">
+            <objects>
+                <viewController id="MWP-jk-0eJ" customClass="HomeViewController" customModule="CanadaFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XvC-UY-EXD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KQE-4Q-4qX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="MWP-jk-0eJ" id="ARC-gZ-9dn"/>
+                                    <outlet property="delegate" destination="MWP-jk-0eJ" id="XPq-Zr-fWh"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QuR-gf-U7a" firstAttribute="trailing" secondItem="KQE-4Q-4qX" secondAttribute="trailing" id="Dtb-is-4AJ"/>
+                            <constraint firstItem="KQE-4Q-4qX" firstAttribute="top" secondItem="XvC-UY-EXD" secondAttribute="top" id="fbx-KA-Sb7"/>
+                            <constraint firstItem="QuR-gf-U7a" firstAttribute="bottom" secondItem="KQE-4Q-4qX" secondAttribute="bottom" id="gEO-Z3-iGw"/>
+                            <constraint firstItem="KQE-4Q-4qX" firstAttribute="leading" secondItem="QuR-gf-U7a" secondAttribute="leading" id="v61-ab-1vj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QuR-gf-U7a"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="enV-6y-s9N"/>
+                    <connections>
+                        <outlet property="tableView" destination="KQE-4Q-4qX" id="PHT-hZ-FZb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yxM-kE-3JI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401" y="-38"/>
         </scene>
     </scenes>
 </document>
