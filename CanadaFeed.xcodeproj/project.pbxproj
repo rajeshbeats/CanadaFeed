@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		932D9101230142F700DE54B9 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932D9100230142F700DE54B9 /* Color.xcassets */; };
+		932D91082301479500DE54B9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D91072301479500DE54B9 /* HomeViewController.swift */; };
+		932D910A2301490B00DE54B9 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D91092301490B00DE54B9 /* HomeTableViewCell.swift */; };
+		932D910C230149D700DE54B9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D910B230149D700DE54B9 /* HomeViewModel.swift */; };
+		932D910E23014A1400DE54B9 /* HomeListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D910D23014A1400DE54B9 /* HomeListDataSource.swift */; };
 		9330FF30230125CD00A99B4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330FF2F230125CD00A99B4D /* AppDelegate.swift */; };
-		9330FF32230125CD00A99B4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330FF31230125CD00A99B4D /* ViewController.swift */; };
 		9330FF35230125CD00A99B4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9330FF33230125CD00A99B4D /* Main.storyboard */; };
 		9330FF37230125CD00A99B4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9330FF36230125CD00A99B4D /* Assets.xcassets */; };
 		9330FF3A230125CD00A99B4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9330FF38230125CD00A99B4D /* LaunchScreen.storyboard */; };
@@ -33,9 +36,12 @@
 		1D94AECD8FC12B144A486FE6 /* Pods-CanadaFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CanadaFeed.release.xcconfig"; path = "Target Support Files/Pods-CanadaFeed/Pods-CanadaFeed.release.xcconfig"; sourceTree = "<group>"; };
 		3192EFC3B17C7E7C718A99B0 /* Pods-CanadaFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CanadaFeed.debug.xcconfig"; path = "Target Support Files/Pods-CanadaFeed/Pods-CanadaFeed.debug.xcconfig"; sourceTree = "<group>"; };
 		932D9100230142F700DE54B9 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		932D91072301479500DE54B9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		932D91092301490B00DE54B9 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		932D910B230149D700DE54B9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		932D910D23014A1400DE54B9 /* HomeListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListDataSource.swift; sourceTree = "<group>"; };
 		9330FF2C230125CD00A99B4D /* CanadaFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanadaFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9330FF2F230125CD00A99B4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9330FF31230125CD00A99B4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9330FF34230125CD00A99B4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9330FF36230125CD00A99B4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9330FF39230125CD00A99B4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -102,7 +108,8 @@
 		932D9102230144F700DE54B9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9330FF31230125CD00A99B4D /* ViewController.swift */,
+				932D91072301479500DE54B9 /* HomeViewController.swift */,
+				932D91092301490B00DE54B9 /* HomeTableViewCell.swift */,
 				9330FF33230125CD00A99B4D /* Main.storyboard */,
 			);
 			path = View;
@@ -111,6 +118,8 @@
 		932D91032301452300DE54B9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				932D910B230149D700DE54B9 /* HomeViewModel.swift */,
+				932D910D23014A1400DE54B9 /* HomeListDataSource.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -351,8 +360,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9330FF32230125CD00A99B4D /* ViewController.swift in Sources */,
 				9330FF30230125CD00A99B4D /* AppDelegate.swift in Sources */,
+				932D910A2301490B00DE54B9 /* HomeTableViewCell.swift in Sources */,
+				932D91082301479500DE54B9 /* HomeViewController.swift in Sources */,
+				932D910E23014A1400DE54B9 /* HomeListDataSource.swift in Sources */,
+				932D910C230149D700DE54B9 /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
