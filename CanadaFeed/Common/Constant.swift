@@ -13,5 +13,6 @@ struct Constant {
 
 	struct Message {
 		static let descriptionNotAvailable = "Description not available"
+		static let titleNotAvailable = "Title not available"
 	}
 }

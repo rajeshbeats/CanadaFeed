@@ -38,7 +38,7 @@ extension HomeListDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.section == 1 {
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CellIdentifier.loadingCell, for: indexPath) as? LoadingIndicatorCell else {
-				fatalError("Unable to load HomeTableViewCell")
+				fatalError("Unable to load LoadingIndicatorCell")
 			}
 			cell.selectionStyle = .none
 			return cell

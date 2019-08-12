@@ -13,6 +13,7 @@ protocol HomeViewModelProtocol {
 	var isFetchInProgress: Bool { get set }
 	init(listDataSource: HomeListDataSource)
 	func fetchFeedData(refresh: Bool, completion: FetchCompletion?)
+	func feed(for index: Int?) -> FeedData?
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -21,6 +22,13 @@ class HomeViewModel: HomeViewModelProtocol {
 
 	required init(listDataSource: HomeListDataSource) {
 		dataSource = listDataSource
+	}
+
+	func feed(for index: Int?) -> FeedData? {
+		guard let rowIndex = index else {
+			return nil
+		}
+		return dataSource?.data[rowIndex]
 	}
 
 	func fetchFeedData(refresh: Bool, completion: FetchCompletion?) {
