@@ -10,19 +10,21 @@ import Foundation
 
 protocol HomeViewModelProtocol {
 
+	var isFetchInProgress: Bool { get set }
 	init(listDataSource: HomeListDataSource)
-	func fetchFeedData(refresh: Bool, completion:  @escaping FetchCompletion)
+	func fetchFeedData(refresh: Bool, completion: FetchCompletion?)
 }
 
 class HomeViewModel: HomeViewModelProtocol {
 	weak var dataSource: HomeListDataSource?
+	var isFetchInProgress = false
 
 	required init(listDataSource: HomeListDataSource) {
 		dataSource = listDataSource
 	}
 
-	func fetchFeedData(refresh: Bool, completion:  @escaping FetchCompletion) {
-
+	func fetchFeedData(refresh: Bool, completion: FetchCompletion?) {
+		isFetchInProgress = true
 		FeedService.fetchFeed(index: 0, limit: 0, refresh: refresh) { [weak self] list, error in
 			guard let this = self else {
 				return
@@ -35,7 +37,8 @@ class HomeViewModel: HomeViewModelProtocol {
 			} else {
 				this.dataSource?.data.append(contentsOf: dataList)
 			}
-			completion(list, error)
+			this.isFetchInProgress = false
+			completion?(list, error)
 		}
 	}
 }
