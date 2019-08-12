@@ -20,3 +20,12 @@ class HomeTableViewCell: UITableViewCell {
 		iconImageView.loadImage(with: feed?.imageHref)
 	}
 }
+
+class LoadingIndicatorCell: UITableViewCell {
+	@IBOutlet weak var activitiIndicatorView: UIActivityIndicatorView!
+
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		activitiIndicatorView.startAnimating()
+	}
+}

@@ -58,7 +58,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5c-Vs-Wvg">
-                                                    <rect key="frame" x="88" y="42.5" width="298" height="81.5"/>
+                                                    <rect key="frame" x="88" y="44.5" width="298" height="79.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="J5c-Vs-Wvg" secondAttribute="bottom" constant="8" id="6y4-Rg-OMM"/>
                                                 <constraint firstItem="0v8-Mf-y2z" firstAttribute="leading" secondItem="u4H-Jf-aIz" secondAttribute="trailing" constant="8" id="75G-I5-JeI"/>
-                                                <constraint firstItem="J5c-Vs-Wvg" firstAttribute="top" secondItem="0v8-Mf-y2z" secondAttribute="bottom" constant="3" id="8UV-gZ-fib"/>
+                                                <constraint firstItem="J5c-Vs-Wvg" firstAttribute="top" secondItem="0v8-Mf-y2z" secondAttribute="bottom" constant="5" id="8UV-gZ-fib"/>
                                                 <constraint firstItem="u4H-Jf-aIz" firstAttribute="top" secondItem="nOu-ss-Thm" secondAttribute="topMargin" constant="8" id="FJp-4H-A6E"/>
                                                 <constraint firstItem="J5c-Vs-Wvg" firstAttribute="leading" secondItem="u4H-Jf-aIz" secondAttribute="trailing" constant="8" id="XsC-Jv-vXS"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="0v8-Mf-y2z" secondAttribute="trailing" constant="8" id="akZ-KP-sqN"/>
@@ -82,6 +82,26 @@
                                             <outlet property="descriptionLabel" destination="J5c-Vs-Wvg" id="aa9-Zg-VID"/>
                                             <outlet property="iconImageView" destination="u4H-Jf-aIz" id="nKa-U5-fqm"/>
                                             <outlet property="titleLabel" destination="0v8-Mf-y2z" id="IQW-o5-5W3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingIndicatorCell" rowHeight="58" id="nB9-Kx-7Fd" customClass="LoadingIndicatorCell" customModule="CanadaFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="171" width="414" height="58"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nB9-Kx-7Fd" id="D1V-dJ-52z">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="57.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FAf-WT-Lzr">
+                                                    <rect key="frame" x="197" y="19" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FAf-WT-Lzr" firstAttribute="centerX" secondItem="D1V-dJ-52z" secondAttribute="centerX" id="LqM-mD-8yY"/>
+                                                <constraint firstItem="FAf-WT-Lzr" firstAttribute="centerY" secondItem="D1V-dJ-52z" secondAttribute="centerY" id="U0R-fk-8sP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="activitiIndicatorView" destination="FAf-WT-Lzr" id="ZTv-c2-aFi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

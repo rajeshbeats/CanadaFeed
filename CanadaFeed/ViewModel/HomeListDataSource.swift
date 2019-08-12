@@ -11,6 +11,7 @@ import UIKit
 private extension Constant {
 	struct CellIdentifier {
 		static let homeCell = "HomeTableViewCell"
+		static let loadingCell = "LoadingIndicatorCell"
 	}
 }
 
@@ -21,20 +22,27 @@ protocol HomeListDataSourceProtocol: UITableViewDataSource {
 
 class HomeListDataSource: NSObject, HomeListDataSourceProtocol {
 	var data: [FeedData] = []
-	var maxLimit: Int = 0
+	var maxLimit: Int = Int.max
 }
 
 extension HomeListDataSource {
 
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
+		return data.count < maxLimit ? 2 : 1
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return data.count
+		return section == 0 ? data.count : 1
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		if indexPath.section == 1 {
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CellIdentifier.loadingCell, for: indexPath) as? LoadingIndicatorCell else {
+				fatalError("Unable to load HomeTableViewCell")
+			}
+			cell.selectionStyle = .none
+			return cell
+		}
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CellIdentifier.homeCell, for: indexPath) as? HomeTableViewCell else {
 			fatalError("Unable to load HomeTableViewCell")
 		}
