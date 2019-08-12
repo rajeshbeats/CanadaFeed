@@ -17,11 +17,17 @@ class HomeViewController: UIViewController {
 		return HomeViewModel(listDataSource: dataSource)
 	}()
 	var completionHandler: FetchCompletion?
+	lazy var refreshControl: UIRefreshControl = {
+		return UIRefreshControl()
+	}()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		tableView.dataSource = dataSource
+		tableView.estimatedRowHeight = 70
 		tableView.tableFooterView = UIView()
+		tableView.refreshControl = refreshControl
+		refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
 		fetchFeed()
     }
 
@@ -40,14 +46,37 @@ class HomeViewController: UIViewController {
 		viewController.feed = viewModel.feed(for: tableView.indexPathForSelectedRow?.row)
 	}
 
+	@objc func refreshAction() {
+		refreshControl.beginRefreshing()
+		fetchFeed()
+	}
+
 	func fetchFeed() {
-		completionHandler = { [weak self] _, _ in
+		completionHandler = { [weak self] list, error in
+
 			guard let this = self else {
 				return
 			}
-			this.tableView.reloadData()
+			DispatchQueue.main.async {
+				this.tableView.reloadData()
+				if this.refreshControl.isRefreshing {
+					this.refreshControl.endRefreshing()
+				}
+				if list == nil, let feedError = error {
+					this.showErrorMessage(feedError.localizedDescription)
+				}
+			}
 		}
 		viewModel.fetchFeedData(refresh: true, completion: completionHandler)
+	}
+
+	/// Show alert with given message
+	///
+	/// - Parameter message: String value
+	func showErrorMessage(_ message: String) {
+		let alert = UIAlertController(title: Constant.appName, message: message, preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+		present(alert, animated: true)
 	}
 }
 

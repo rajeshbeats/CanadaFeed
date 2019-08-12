@@ -16,3 +16,10 @@ struct Constant {
 		static let titleNotAvailable = "Title not available"
 	}
 }
+
+struct AppError: LocalizedError {
+	let errorDescription: String?
+	static let unknownError = AppError(errorDescription: "Unknown Error")
+	static let apiEndpointError = AppError(errorDescription: "API endpoint not found")
+	static let networkError = AppError(errorDescription: "Unable to perform data refresh, please try again later")
+}

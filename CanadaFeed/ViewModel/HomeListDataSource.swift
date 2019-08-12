@@ -28,7 +28,7 @@ class HomeListDataSource: NSObject, HomeListDataSourceProtocol {
 extension HomeListDataSource {
 
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return data.count < maxLimit ? 2 : 1
+		return data.count < maxLimit && data.count != 0 ? 2 : 1
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
