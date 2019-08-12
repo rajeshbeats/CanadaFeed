@@ -22,6 +22,7 @@
 		9330FF37230125CD00A99B4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9330FF36230125CD00A99B4D /* Assets.xcassets */; };
 		9330FF3A230125CD00A99B4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9330FF38230125CD00A99B4D /* LaunchScreen.storyboard */; };
 		9330FF45230125CD00A99B4D /* CanadaFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330FF44230125CD00A99B4D /* CanadaFeedTests.swift */; };
+		93E51FD72301A21E00F0C2F2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E51FD62301A21E00F0C2F2 /* DetailViewController.swift */; };
 		A3624A7202314E85B84F52F1 /* Pods_CanadaFeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D19C972CD37AAB4F8DA2937 /* Pods_CanadaFeedTests.framework */; };
 		F8FDE37C26F0C4D020FCE0BC /* Pods_CanadaFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAEFAC6491E7D64400DA2E0 /* Pods_CanadaFeed.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		9330FF40230125CD00A99B4D /* CanadaFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanadaFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9330FF44230125CD00A99B4D /* CanadaFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanadaFeedTests.swift; sourceTree = "<group>"; };
 		9330FF46230125CD00A99B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93E51FD62301A21E00F0C2F2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9D19C972CD37AAB4F8DA2937 /* Pods_CanadaFeedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CanadaFeedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50E27796A5F4DBF78370AFC /* Pods-CanadaFeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CanadaFeedTests.release.xcconfig"; path = "Target Support Files/Pods-CanadaFeedTests/Pods-CanadaFeedTests.release.xcconfig"; sourceTree = "<group>"; };
 		FA7E13090E23FDCB10F91A30 /* Pods-CanadaFeedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CanadaFeedTests.debug.xcconfig"; path = "Target Support Files/Pods-CanadaFeedTests/Pods-CanadaFeedTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				932D91072301479500DE54B9 /* HomeViewController.swift */,
+				93E51FD62301A21E00F0C2F2 /* DetailViewController.swift */,
 				932D91092301490B00DE54B9 /* HomeTableViewCell.swift */,
 				9330FF33230125CD00A99B4D /* Main.storyboard */,
 			);
@@ -391,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E51FD72301A21E00F0C2F2 /* DetailViewController.swift in Sources */,
 				9330FF30230125CD00A99B4D /* AppDelegate.swift in Sources */,
 				932D910A2301490B00DE54B9 /* HomeTableViewCell.swift in Sources */,
 				932D911C23014E7A00DE54B9 /* FeedService.swift in Sources */,
