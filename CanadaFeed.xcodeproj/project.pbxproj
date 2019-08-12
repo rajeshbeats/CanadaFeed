@@ -23,6 +23,8 @@
 		9330FF3A230125CD00A99B4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9330FF38230125CD00A99B4D /* LaunchScreen.storyboard */; };
 		9330FF45230125CD00A99B4D /* CanadaFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330FF44230125CD00A99B4D /* CanadaFeedTests.swift */; };
 		93E51FD72301A21E00F0C2F2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E51FD62301A21E00F0C2F2 /* DetailViewController.swift */; };
+		93E51FDB2301BF6D00F0C2F2 /* URLMockProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E51FDA2301BF6D00F0C2F2 /* URLMockProtocol.swift */; };
+		93E51FDD2301CA8B00F0C2F2 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E51FDC2301CA8B00F0C2F2 /* MockResponse.swift */; };
 		A3624A7202314E85B84F52F1 /* Pods_CanadaFeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D19C972CD37AAB4F8DA2937 /* Pods_CanadaFeedTests.framework */; };
 		F8FDE37C26F0C4D020FCE0BC /* Pods_CanadaFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAEFAC6491E7D64400DA2E0 /* Pods_CanadaFeed.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +63,8 @@
 		9330FF44230125CD00A99B4D /* CanadaFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanadaFeedTests.swift; sourceTree = "<group>"; };
 		9330FF46230125CD00A99B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93E51FD62301A21E00F0C2F2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		93E51FDA2301BF6D00F0C2F2 /* URLMockProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLMockProtocol.swift; sourceTree = "<group>"; };
+		93E51FDC2301CA8B00F0C2F2 /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
 		9D19C972CD37AAB4F8DA2937 /* Pods_CanadaFeedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CanadaFeedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50E27796A5F4DBF78370AFC /* Pods-CanadaFeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CanadaFeedTests.release.xcconfig"; path = "Target Support Files/Pods-CanadaFeedTests/Pods-CanadaFeedTests.release.xcconfig"; sourceTree = "<group>"; };
 		FA7E13090E23FDCB10F91A30 /* Pods-CanadaFeedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CanadaFeedTests.debug.xcconfig"; path = "Target Support Files/Pods-CanadaFeedTests/Pods-CanadaFeedTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,7 +204,9 @@
 		9330FF43230125CD00A99B4D /* CanadaFeedTests */ = {
 			isa = PBXGroup;
 			children = (
+				93E51FDA2301BF6D00F0C2F2 /* URLMockProtocol.swift */,
 				9330FF44230125CD00A99B4D /* CanadaFeedTests.swift */,
+				93E51FDC2301CA8B00F0C2F2 /* MockResponse.swift */,
 				9330FF46230125CD00A99B4D /* Info.plist */,
 			);
 			path = CanadaFeedTests;
@@ -412,7 +418,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E51FDD2301CA8B00F0C2F2 /* MockResponse.swift in Sources */,
 				9330FF45230125CD00A99B4D /* CanadaFeedTests.swift in Sources */,
+				93E51FDB2301BF6D00F0C2F2 /* URLMockProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
