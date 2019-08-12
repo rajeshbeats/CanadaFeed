@@ -8,6 +8,7 @@ target 'CanadaFeed' do
   # Pods for CanadaFeed
 	pod 'SwiftLint'
 	pod 'Alamofire'
+	pod 'Nuke'
 
   target 'CanadaFeedTests' do
     inherit! :search_paths

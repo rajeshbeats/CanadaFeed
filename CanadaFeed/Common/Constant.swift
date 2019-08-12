@@ -10,4 +10,8 @@ import Foundation
 
 struct Constant {
 	static let appName = "Canada Feed"
+
+	struct Message {
+		static let descriptionNotAvailable = "Description not available"
+	}
 }

@@ -10,15 +10,13 @@ import UIKit
 
 class HomeTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+	@IBOutlet weak var descriptionLabel: UILabel!
+	@IBOutlet weak var iconImageView: UIImageView!
+	@IBOutlet weak var titleLabel: UILabel!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+	func update(_ feed: FeedData?) {
+		descriptionLabel.text = feed?.details ?? Constant.Message.descriptionNotAvailable
+		titleLabel.text = feed?.title
+		iconImageView.loadImage(with: feed?.imageHref)
+	}
 }
