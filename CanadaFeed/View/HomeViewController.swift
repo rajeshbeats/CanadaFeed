@@ -21,6 +21,8 @@ class HomeViewController: UIViewController {
 		return UIRefreshControl()
 	}()
 
+	// MARK: - Override function
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableView.dataSource = dataSource
@@ -31,20 +33,14 @@ class HomeViewController: UIViewController {
 		refreshAction()
 	}
 
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		guard let indexPath = tableView.indexPathForSelectedRow else {
-			return
-		}
-		tableView.deselectRow(at: indexPath, animated: true)
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
 	}
+}
 
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		guard let viewController = segue.destination as? DetailViewController else {
-			return
-		}
-		viewController.feed = viewModel.feed(for: tableView.indexPathForSelectedRow?.row)
-	}
+// MARK: - View functions
+
+extension HomeViewController {
 
 	/// Add refresh control for pull to refresh functionality
 	private func addRefreshControl() {
@@ -52,18 +48,19 @@ class HomeViewController: UIViewController {
 		refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
 	}
 
+	/// Pull to Refresh action
 	@objc func refreshAction() {
 		refreshControl.beginRefreshing()
 		fetchFeed()
 	}
-}
 
-extension HomeViewController {
-	func fetchFeed() {
+	/// Fetch latest available feed
+	private func fetchFeed() {
 		viewModel.fetchFeedData(refresh: true, completion: completionHandler)
 	}
 
-	func fetchListener() {
+	/// Completion handler for fetch callbak
+	private func fetchListener() {
 		completionHandler = { [weak self] list, error in
 
 			guard let this = self else {
@@ -91,8 +88,19 @@ extension HomeViewController: UITableViewDelegate {
 	}
 
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+		if cell.isKind(of: HomeTableViewCell.self) {
+			(cell as? HomeTableViewCell)?.cellAction = self
+		}
 		if indexPath.row == 0 && indexPath.section == 1 && !viewModel.isFetchInProgress {
 			viewModel.fetchFeedData(refresh: false, completion: completionHandler)
 		}
+	}
+}
+
+extension HomeViewController: HomeCellActionProtocol {
+	func selectedCell(_ cell: UITableViewCell) {
+		let viewController: DetailViewController = UIStoryboard.viewController(with: "DetailViewController")
+		viewController.feed = viewModel.feed(for: tableView.indexPath(for: cell)?.row)
+		present(viewController, animated: true, completion: nil)
 	}
 }

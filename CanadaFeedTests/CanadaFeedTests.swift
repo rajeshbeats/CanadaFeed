@@ -15,14 +15,11 @@ class CanadaFeedTests: XCTestCase {
 
 	override func setUp() {
 		// Setup URLSession for mockup and testing
+		URLCache.shared.removeAllCachedResponses()
 		let config = URLSessionConfiguration.ephemeral
 		config.protocolClasses = [URLMockProtocol.self]
 		let session = URLSession(configuration: config)
 		FeedService.session = session
-	}
-
-    override func tearDown() {
-		URLCache.shared.removeAllCachedResponses()
 	}
 
 	/// Test valid response
@@ -101,5 +98,4 @@ class CanadaFeedTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

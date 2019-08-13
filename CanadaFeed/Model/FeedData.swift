@@ -9,8 +9,14 @@
 import Foundation
 
 struct FeedData: Codable {
+
+	/// Feed title
 	let title: String?
+
+	/// Detail description
 	let details: String?
+
+	/// Image url
 	let imageHref: String?
 
 	enum CodingKeys: String, CodingKey {
@@ -21,6 +27,10 @@ struct FeedData: Codable {
 }
 
 struct FeedList: Codable {
+
+	/// Feed title
 	let title: String?
+
+	/// Feed items
 	let rows: [FeedData]?
 }

@@ -9,6 +9,8 @@
 import Foundation
 
 extension Data {
+
+	/// Convert data into UTF8 encoded data
 	var toUtf8: Data? {
 		guard let asciiText = String(data: self, encoding: .ascii) else {
 			return nil

@@ -18,3 +18,17 @@ extension UIViewController {
 		present(alert, animated: true)
 	}
 }
+
+extension UIStoryboard {
+
+	/// Viewcontroller for giving storyboard identifier
+	///
+	/// - Parameter identifier: String
+	/// - Returns: Given viewController type T
+	static func viewController<T>(with identifier: String) -> T {
+		guard let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier) as? T else {
+			fatalError("Viewcontroller not available")
+		}
+		return viewController
+	}
+}
