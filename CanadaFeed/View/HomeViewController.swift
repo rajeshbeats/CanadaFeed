@@ -59,7 +59,7 @@ extension HomeViewController {
 		viewModel.fetchFeedData(refresh: true, completion: completionHandler)
 	}
 
-	/// Completion handler for fetch callbak
+	/// Completion handler for fetch callback
 	private func fetchListener() {
 		completionHandler = { [weak self] list, error in
 
@@ -91,6 +91,8 @@ extension HomeViewController: UITableViewDelegate {
 		if cell.isKind(of: HomeTableViewCell.self) {
 			(cell as? HomeTableViewCell)?.cellAction = self
 		}
+
+		// Perform pagination loading if the table reaches end and not other requests in progress.
 		if indexPath.row == 0 && indexPath.section == 1 && !viewModel.isFetchInProgress {
 			viewModel.fetchFeedData(refresh: false, completion: completionHandler)
 		}

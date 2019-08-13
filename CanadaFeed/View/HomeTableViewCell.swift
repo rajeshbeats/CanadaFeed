@@ -8,7 +8,13 @@
 
 import UIKit
 
+
+/// Home Cell Action protocols
 protocol HomeCellActionProtocol: class {
+
+	/// Selected cell from UITableViewCell
+	///
+	/// - Parameter cell: UITableViewCell
 	func selectedCell(_ cell: UITableViewCell)
 }
 
@@ -26,6 +32,7 @@ class HomeTableViewCell: UITableViewCell {
 	func update(_ feed: FeedData?) {
 		descriptionLabel.text = feed?.details ?? Constant.Message.descriptionNotAvailable
 		titleLabel.text = feed?.title ?? Constant.Message.titleNotAvailable
+		// Lazy loading images in UIImageView
 		iconImageView.loadImage(with: feed?.imageHref)
 	}
 
