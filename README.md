@@ -23,7 +23,11 @@ Model–view–viewmodel (**MVVM**)
  6. Build and Run the application!
 
 ### Compatibility
-**Supported Xcode version** - 10.2 and greater
+**Supported Xcode version** - 10.2 and later
+
 **Minimum iOS deployment target** - 12.0
+
 **Device** : Universal App
+
 **Unit Test** - CanadaFeedTests (`XCTest`)
+
