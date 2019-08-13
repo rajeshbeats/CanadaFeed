@@ -17,13 +17,19 @@ class HomeViewController: UIViewController {
 		return HomeViewModel(listDataSource: dataSource)
 	}()
 	var completionHandler: FetchCompletion?
+	lazy var refreshControl: UIRefreshControl = {
+		return UIRefreshControl()
+	}()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		tableView.dataSource = dataSource
+		tableView.estimatedRowHeight = 70
 		tableView.tableFooterView = UIView()
-		fetchFeed()
-    }
+		addRefreshControl()
+		fetchListener()
+		refreshAction()
+	}
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
@@ -40,14 +46,40 @@ class HomeViewController: UIViewController {
 		viewController.feed = viewModel.feed(for: tableView.indexPathForSelectedRow?.row)
 	}
 
+	/// Add refresh control for pull to refresh functionality
+	private func addRefreshControl() {
+		tableView.refreshControl = refreshControl
+		refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
+	}
+
+	@objc func refreshAction() {
+		refreshControl.beginRefreshing()
+		fetchFeed()
+	}
+}
+
+extension HomeViewController {
 	func fetchFeed() {
-		completionHandler = { [weak self] _, _ in
+		viewModel.fetchFeedData(refresh: true, completion: completionHandler)
+	}
+
+	func fetchListener() {
+		completionHandler = { [weak self] list, error in
+
 			guard let this = self else {
 				return
 			}
-			this.tableView.reloadData()
+			DispatchQueue.main.async {
+				this.tableView.reloadData()
+				if this.refreshControl.isRefreshing {
+					this.refreshControl.endRefreshing()
+				}
+				if list == nil, let feedError = error {
+					this.showErrorMessage(feedError.localizedDescription)
+				}
+				this.title = list?.title
+			}
 		}
-		viewModel.fetchFeedData(refresh: true, completion: completionHandler)
 	}
 }
 

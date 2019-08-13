@@ -16,12 +16,13 @@ class HomeTableViewCell: UITableViewCell {
 
 	func update(_ feed: FeedData?) {
 		descriptionLabel.text = feed?.details ?? Constant.Message.descriptionNotAvailable
-		titleLabel.text = feed?.title
+		titleLabel.text = feed?.title ?? Constant.Message.titleNotAvailable
 		iconImageView.loadImage(with: feed?.imageHref)
 	}
 }
 
 class LoadingIndicatorCell: UITableViewCell {
+
 	@IBOutlet weak var activitiIndicatorView: UIActivityIndicatorView!
 
 	override func prepareForReuse() {
