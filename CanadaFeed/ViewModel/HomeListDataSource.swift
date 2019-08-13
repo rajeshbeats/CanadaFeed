@@ -16,12 +16,17 @@ private extension Constant {
 }
 
 protocol HomeListDataSourceProtocol: UITableViewDataSource {
+
+	/// Array of FeedData items
 	var data: [FeedData] { get set }
+
+	/// Max limit for result
 	var maxLimit: Int { get set }
 }
 
 class HomeListDataSource: NSObject, HomeListDataSourceProtocol {
 	var data: [FeedData] = []
+	// limit set to max for showing infinity scroll
 	var maxLimit: Int = Int.max
 }
 
@@ -36,16 +41,11 @@ extension HomeListDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if indexPath.section == 1 {
-			guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CellIdentifier.loadingCell, for: indexPath) as? LoadingIndicatorCell else {
-				fatalError("Unable to load LoadingIndicatorCell")
-			}
-			cell.selectionStyle = .none
+		guard indexPath.section == 0 else {
+			let cell: LoadingIndicatorCell = tableView.dequeueGenericCell(identifier: Constant.CellIdentifier.loadingCell, for: indexPath)
 			return cell
 		}
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CellIdentifier.homeCell, for: indexPath) as? HomeTableViewCell else {
-			fatalError("Unable to load HomeTableViewCell")
-		}
+		let cell: HomeTableViewCell = tableView.dequeueGenericCell(identifier: Constant.CellIdentifier.homeCell, for: indexPath)
 		cell.update(data[indexPath.row])
 		return cell
 	}

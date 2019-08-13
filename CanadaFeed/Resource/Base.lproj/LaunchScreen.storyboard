@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,18 +17,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brand-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ua8-4T-glq">
-                                <rect key="frame" x="87" y="328" width="240" height="240"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUR-cG-5zL">
+                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brand-icon" translatesAutoresizingMaskIntoConstraints="NO" id="4BG-dV-bju">
+                                <rect key="frame" x="167" y="408" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="fDx-IE-YdP"/>
-                                    <constraint firstAttribute="width" constant="240" id="hNm-EV-FA6"/>
+                                    <constraint firstAttribute="width" constant="80" id="9ZJ-vw-KBS"/>
+                                    <constraint firstAttribute="height" constant="80" id="jw3-Yi-WrL"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" name="Primary"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ua8-4T-glq" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="NKH-zw-SCU"/>
-                            <constraint firstItem="Ua8-4T-glq" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qTQ-oI-aI2"/>
+                            <constraint firstItem="QUR-cG-5zL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ZFg-n2-1p5"/>
+                            <constraint firstItem="QUR-cG-5zL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="fv1-JV-SKk"/>
+                            <constraint firstItem="4BG-dV-bju" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="pif-sp-wKs"/>
+                            <constraint firstItem="4BG-dV-bju" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="wjM-Ol-GKx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -41,8 +48,5 @@
     </scenes>
     <resources>
         <image name="brand-icon" width="80" height="80"/>
-        <namedColor name="Primary">
-            <color red="0.9100000262260437" green="0.13300000131130219" blue="0.18400000035762787" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>
