@@ -15,6 +15,10 @@ struct Constant {
 		static let descriptionNotAvailable = "Description not available"
 		static let titleNotAvailable = "Title not available"
 	}
+
+	enum AppUrl: String {
+		case feed = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
+	}
 }
 
 struct AppError: LocalizedError {

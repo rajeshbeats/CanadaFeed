@@ -12,6 +12,7 @@ import XCTest
 class CanadaFeedTests: XCTestCase {
 
 	let url = URL(string: Constant.AppUrl.feed.rawValue)!
+
 	override func setUp() {
 		// Setup URLSession for mockup and testing
 		let config = URLSessionConfiguration.ephemeral
@@ -21,13 +22,13 @@ class CanadaFeedTests: XCTestCase {
 	}
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+		URLCache.shared.removeAllCachedResponses()
 	}
 
 	/// Test valid response
 	func testProperResponse() {
 		URLMockProtocol.testURLs = [url: Data(MockResponse.validResponse.utf8)]
-		let expectation = self.expectation(description: "Successful response from endpoint")
+		let testExpectation = expectation(description: "Successful response from endpoint")
 
 		let service = FeedService()
 		let dataSource = HomeListDataSource()
@@ -38,15 +39,15 @@ class CanadaFeedTests: XCTestCase {
 			XCTAssert(error == nil, "Unexpected error occurred")
 			XCTAssert(list?.rows?.count == 2, "Feed list count not matching")
 			XCTAssert(viewModel.feed(for: 0)?.title == "Beavers", "Data source info mismatch")
-			expectation.fulfill()
+			testExpectation.fulfill()
 		}
-		wait(for: [expectation], timeout: 5)
+		wait(for: [testExpectation], timeout: 5)
 	}
 
 	/// Test invalid response
 	func testInvalidResponse() {
 		URLMockProtocol.testURLs = [url: Data(MockResponse.invalidResponse.utf8)]
-		let expectation = self.expectation(description: "Successful response from endpoint")
+		let testExpectation = expectation(description: "Error handling")
 
 		let service = FeedService()
 		let dataSource = HomeListDataSource()
@@ -55,15 +56,15 @@ class CanadaFeedTests: XCTestCase {
 		viewModel.fetchFeedData(refresh: true) { list, error in
 			XCTAssert(error != nil, "Expecting error")
 			XCTAssert(list == nil, "Feed list should be nil")
-			expectation.fulfill()
+			testExpectation.fulfill()
 		}
-		wait(for: [expectation], timeout: 5)
+		wait(for: [testExpectation], timeout: 5)
 	}
 
 	/// Test response appending scenario
 	func testResponseAppending() {
 		URLMockProtocol.testURLs = [url: Data(MockResponse.validResponse.utf8)]
-		let expectation = self.expectation(description: "Successful response from endpoint")
+		let testExpectation = expectation(description: "Successful response appending")
 
 		let service = FeedService()
 		let dataSource = HomeListDataSource()
@@ -72,16 +73,16 @@ class CanadaFeedTests: XCTestCase {
 		viewModel.fetchFeedData(refresh: true) { _, _ in
 			viewModel.fetchFeedData(refresh: false, completion: { _, _ in
 				XCTAssert(dataSource.data.count == 4, "Feed list count not matching")
-				expectation.fulfill()
+				testExpectation.fulfill()
 			})
 		}
-		wait(for: [expectation], timeout: 5)
+		wait(for: [testExpectation], timeout: 5)
 	}
 
 	/// Test API error
 	func testAPIError() {
 		URLMockProtocol.testURLs = [url: nil]
-		let expectation = self.expectation(description: "Successful response from endpoint")
+		let testExpectation = expectation(description: "Expecting API error from service")
 		let service = FeedService()
 		let dataSource = HomeListDataSource()
 		let viewModel = HomeViewModel(listDataSource: dataSource)
@@ -89,9 +90,9 @@ class CanadaFeedTests: XCTestCase {
 		viewModel.fetchFeedData(refresh: true) { list, error in
 			XCTAssert(error != nil, "Expecting error")
 			XCTAssert(list == nil, "Feed list should be nil")
-			expectation.fulfill()
+			testExpectation.fulfill()
 		}
-		wait(for: [expectation], timeout: 5)
+		wait(for: [testExpectation], timeout: 5)
 	}
 
     func testPerformanceExample() {

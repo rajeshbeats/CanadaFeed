@@ -21,13 +21,14 @@ class HomeViewModel: HomeViewModelProtocol {
 	weak var dataSource: HomeListDataSource?
 	var isFetchInProgress = false
 	var service: FeedServiceProtocol? = FeedService()
+	var startIndex = 0, limitCount = 0
 
 	required init(listDataSource: HomeListDataSource) {
 		dataSource = listDataSource
 	}
 
 	func feed(for index: Int?) -> FeedData? {
-		guard let rowIndex = index else {
+		guard let rowIndex = index, (dataSource?.data.count ?? 0) > rowIndex else {
 			return nil
 		}
 		return dataSource?.data[rowIndex]
@@ -35,7 +36,7 @@ class HomeViewModel: HomeViewModelProtocol {
 
 	func fetchFeedData(refresh: Bool, completion: FetchCompletion?) {
 		isFetchInProgress = true
-		service?.fetchFeed(index: 0, limit: 0, refresh: refresh) { [weak self] list, error in
+		service?.fetchFeed(index: startIndex, limit: limitCount, refresh: refresh) { [weak self] list, error in
 			guard let this = self else {
 				return
 			}

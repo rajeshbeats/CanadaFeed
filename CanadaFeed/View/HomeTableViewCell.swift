@@ -22,6 +22,7 @@ class HomeTableViewCell: UITableViewCell {
 }
 
 class LoadingIndicatorCell: UITableViewCell {
+
 	@IBOutlet weak var activitiIndicatorView: UIActivityIndicatorView!
 
 	override func prepareForReuse() {

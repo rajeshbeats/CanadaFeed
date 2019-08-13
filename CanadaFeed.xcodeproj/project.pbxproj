@@ -25,6 +25,7 @@
 		93E51FD72301A21E00F0C2F2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E51FD62301A21E00F0C2F2 /* DetailViewController.swift */; };
 		93E51FDB2301BF6D00F0C2F2 /* URLMockProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E51FDA2301BF6D00F0C2F2 /* URLMockProtocol.swift */; };
 		93E51FDD2301CA8B00F0C2F2 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E51FDC2301CA8B00F0C2F2 /* MockResponse.swift */; };
+		93E51FDF230242EA00F0C2F2 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E51FDE230242EA00F0C2F2 /* UIViewControllerExtension.swift */; };
 		A3624A7202314E85B84F52F1 /* Pods_CanadaFeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D19C972CD37AAB4F8DA2937 /* Pods_CanadaFeedTests.framework */; };
 		F8FDE37C26F0C4D020FCE0BC /* Pods_CanadaFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAEFAC6491E7D64400DA2E0 /* Pods_CanadaFeed.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		93E51FD62301A21E00F0C2F2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		93E51FDA2301BF6D00F0C2F2 /* URLMockProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLMockProtocol.swift; sourceTree = "<group>"; };
 		93E51FDC2301CA8B00F0C2F2 /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
+		93E51FDE230242EA00F0C2F2 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		9D19C972CD37AAB4F8DA2937 /* Pods_CanadaFeedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CanadaFeedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50E27796A5F4DBF78370AFC /* Pods-CanadaFeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CanadaFeedTests.release.xcconfig"; path = "Target Support Files/Pods-CanadaFeedTests/Pods-CanadaFeedTests.release.xcconfig"; sourceTree = "<group>"; };
 		FA7E13090E23FDCB10F91A30 /* Pods-CanadaFeedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CanadaFeedTests.debug.xcconfig"; path = "Target Support Files/Pods-CanadaFeedTests/Pods-CanadaFeedTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				932D911E23014F7E00DE54B9 /* Constant.swift */,
 				932D912023015AA700DE54B9 /* DataExtension.swift */,
+				93E51FDE230242EA00F0C2F2 /* UIViewControllerExtension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				932D911F23014F7E00DE54B9 /* Constant.swift in Sources */,
 				932D91082301479500DE54B9 /* HomeViewController.swift in Sources */,
 				932D911923014E6800DE54B9 /* FeedData.swift in Sources */,
+				93E51FDF230242EA00F0C2F2 /* UIViewControllerExtension.swift in Sources */,
 				932D910E23014A1400DE54B9 /* HomeListDataSource.swift in Sources */,
 				932D912123015AA700DE54B9 /* DataExtension.swift in Sources */,
 				932D910C230149D700DE54B9 /* HomeViewModel.swift in Sources */,

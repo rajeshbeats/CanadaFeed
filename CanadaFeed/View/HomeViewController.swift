@@ -21,15 +21,15 @@ class HomeViewController: UIViewController {
 		return UIRefreshControl()
 	}()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		tableView.dataSource = dataSource
 		tableView.estimatedRowHeight = 70
 		tableView.tableFooterView = UIView()
-		tableView.refreshControl = refreshControl
-		refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
-		fetchFeed()
-    }
+		addRefreshControl()
+		fetchListener()
+		refreshAction()
+	}
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
@@ -46,12 +46,24 @@ class HomeViewController: UIViewController {
 		viewController.feed = viewModel.feed(for: tableView.indexPathForSelectedRow?.row)
 	}
 
+	/// Add refresh control for pull to refresh functionality
+	private func addRefreshControl() {
+		tableView.refreshControl = refreshControl
+		refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
+	}
+
 	@objc func refreshAction() {
 		refreshControl.beginRefreshing()
 		fetchFeed()
 	}
+}
 
+extension HomeViewController {
 	func fetchFeed() {
+		viewModel.fetchFeedData(refresh: true, completion: completionHandler)
+	}
+
+	func fetchListener() {
 		completionHandler = { [weak self] list, error in
 
 			guard let this = self else {
@@ -65,18 +77,9 @@ class HomeViewController: UIViewController {
 				if list == nil, let feedError = error {
 					this.showErrorMessage(feedError.localizedDescription)
 				}
+				this.title = list?.title
 			}
 		}
-		viewModel.fetchFeedData(refresh: true, completion: completionHandler)
-	}
-
-	/// Show alert with given message
-	///
-	/// - Parameter message: String value
-	func showErrorMessage(_ message: String) {
-		let alert = UIAlertController(title: Constant.appName, message: message, preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-		present(alert, animated: true)
 	}
 }
 
