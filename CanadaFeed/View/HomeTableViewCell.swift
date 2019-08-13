@@ -8,10 +8,8 @@
 
 import UIKit
 
-
 /// Home Cell Action protocols
 protocol HomeCellActionProtocol: class {
-
 	/// Selected cell from UITableViewCell
 	///
 	/// - Parameter cell: UITableViewCell
